@@ -374,22 +374,29 @@
     </p>
 
     <div class="form-card">
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias, te contactaremos pronto');">
-        <div class="form-row">
-          <input type="text" placeholder="Nombre / Name" required>
-          <input type="email" placeholder="Email" required>
-        </div>
+   <form class="contact-form" action="https://formsubmit.co/info@vetglobal.com" method="POST">
 
-        <div class="form-row">
-          <input type="text" placeholder="Empresa / Company">
-        </div>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://google.com">
+  <input type="hidden" name="_subject" value="Nueva solicitud Vet Global Trading">
+  <input type="text" name="_honey" style="display:none">
 
-        <div class="form-row">
-          <textarea placeholder="Mensaje / Message" rows="6" required></textarea>
-        </div>
+  <div class="form-row">
+    <input type="text" name="nombre" placeholder="Nombre / Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+  </div>
 
-        <button type="submit">Solicitar cotización</button>
-      </form>
+  <div class="form-row">
+    <input type="text" name="empresa" placeholder="Empresa / Company">
+  </div>
+
+  <div class="form-row">
+    <textarea name="mensaje" placeholder="Mensaje / Message" rows="6" required></textarea>
+  </div>
+
+  <button type="submit">Solicitar cotización</button>
+
+</form>
     </div>
   </div>
 </section>
