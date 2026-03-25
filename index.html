@@ -209,17 +209,25 @@
   </footer>
 
   <script>
-    function setLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(el=>{
-        el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
-      });
-      document.querySelectorAll('h1[data-lang], h2[data-lang], h3[data-lang], p[data-lang], span[data-lang], li[data-lang]').forEach(el=>{
-        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
-      });
-      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+   function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.style.display = 'none';
+  });
+
+  document.querySelectorAll('[data-lang="' + lang + '"]').forEach(el=>{
+    if (el.tagName === 'SPAN' || el.tagName === 'A') {
+      el.style.display = 'inline';
+    } else if (el.tagName === 'LI') {
+      el.style.display = 'list-item';
+    } else {
+      el.style.display = 'block';
     }
+  });
+
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+}
     setLang('es');
   </script>
 </body>
