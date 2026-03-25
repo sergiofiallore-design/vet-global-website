@@ -54,6 +54,86 @@
     [data-lang]{display:none}
     @media (max-width: 980px){.hero .container,.grid-2,.contact-wrap{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr 1fr}.markets{grid-template-columns:1fr 1fr}h1{font-size:42px}h2{font-size:32px}nav .container{align-items:flex-start;flex-direction:column}.menu{gap:12px}}
     @media (max-width: 640px){.card-grid,.markets,.pill-grid{grid-template-columns:1fr}h1{font-size:34px}.hero p{font-size:18px}}
+    .contact-section{
+  padding:90px 0;
+  background:#f7f9fc;
+}
+
+.form-card{
+  max-width:760px;
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(15,23,42,.08);
+  margin-top:24px;
+}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.form-row{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.form-row input,
+.form-row textarea{
+  width:100%;
+  padding:15px 16px;
+  border:1px solid #d0d5dd;
+  border-radius:12px;
+  font-size:15px;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#0f172a;
+  background:#fff;
+  outline:none;
+}
+
+.form-row input:focus,
+.form-row textarea:focus{
+  border-color:#1591EA;
+  box-shadow:0 0 0 3px rgba(21,145,234,.12);
+}
+
+.form-row input{
+  flex:1 1 260px;
+}
+
+.form-row textarea{
+  resize:vertical;
+  min-height:150px;
+}
+
+.contact-form button{
+  align-self:flex-start;
+  background:#d93025;
+  color:#fff;
+  border:none;
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.contact-form button:hover{
+  opacity:.93;
+}
+
+@media (max-width: 640px){
+  .form-card{
+    padding:20px;
+  }
+
+  .contact-form button{
+    width:100%;
+  }
+}
   </style>
 </head>
 <body>
@@ -262,18 +342,41 @@
 }
     setLang('es');
   </script>
-<section id="contact">
+<section id="contact" class="contact-section">
   <div class="container">
-    <div class="section-title">Contacto</div>
+    <div class="section-title">
+      <span data-lang="es">Contacto</span>
+      <span data-lang="en">Contact</span>
+    </div>
 
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias, te contactaremos pronto');">
-      <input type="text" placeholder="Nombre / Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Empresa / Company">
-      <textarea placeholder="Mensaje / Message" rows="5" required></textarea>
+    <h2 data-lang="es">Solicita tu cotización</h2>
+    <h2 data-lang="en">Request your quote</h2>
 
-      <button type="submit">Solicitar cotización</button>
-    </form>
+    <p class="lead" data-lang="es">
+      Completa el formulario y te contactaremos a la brevedad.
+    </p>
+    <p class="lead" data-lang="en">
+      Complete the form and we will contact you shortly.
+    </p>
+
+    <div class="form-card">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias, te contactaremos pronto');">
+        <div class="form-row">
+          <input type="text" placeholder="Nombre / Name" required>
+          <input type="email" placeholder="Email" required>
+        </div>
+
+        <div class="form-row">
+          <input type="text" placeholder="Empresa / Company">
+        </div>
+
+        <div class="form-row">
+          <textarea placeholder="Mensaje / Message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit">Solicitar cotización</button>
+      </form>
+    </div>
   </div>
 </section>
 
