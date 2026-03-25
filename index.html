@@ -209,17 +209,39 @@
   </footer>
 
   <script>
-       function setLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(el=>{
-        el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
-      });
-      document.querySelectorAll('h1[data-lang], h2[data-lang], h3[data-lang], p[data-lang], span[data-lang], li[data-lang]').forEach(el=>{
-        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
-      });
-      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.documentElement.lang = lang === 'es' ? 'es' : 'en';
-    }
+      function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = 'none';
+  });
+
+  document.querySelectorAll('span[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'inline';
+  });
+
+  document.querySelectorAll('a[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'inline';
+  });
+
+  document.querySelectorAll('h1[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'block';
+  });
+
+  document.querySelectorAll('h2[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'block';
+  });
+
+  document.querySelectorAll('h3[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'block';
+  });
+
+  document.querySelectorAll('p[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'block';
+  });
+
+  document.querySelectorAll('li[data-lang="' + lang + '"]').forEach(el => {
+    el.style.display = 'list-item';
+  });
+
   document.getElementById('btn-es').classList.toggle('active', lang === 'es');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   document.documentElement.lang = lang;
